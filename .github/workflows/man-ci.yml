@@ -1,0 +1,16 @@
+name: Manual Trigger CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Your name'
+        required: true
+        default: 'GitHub User'
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet user
+        run: echo "Hello, ${{ github.event.inputs.name }}!"
