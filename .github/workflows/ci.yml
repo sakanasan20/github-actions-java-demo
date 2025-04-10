@@ -28,6 +28,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Maven
+        if: github.ref == 'refs/heads/main'  # 只在 main 分支上運行
         run: mvn clean install
         
       - name: Run Tests
